@@ -8,3 +8,9 @@
 rootProject.name = "owltex"
 include("libs:share-kernel")
 findProject(":libs:share-kernel")?.name = "share-kernel"
+include("libs:untitled")
+findProject(":libs:untitled")?.name = "untitled"
+include("apps:order-service")
+findProject(":apps:order-service")?.name = "order-service"
+include("apps:product-service")
+findProject(":apps:product-service")?.name = "product-service"

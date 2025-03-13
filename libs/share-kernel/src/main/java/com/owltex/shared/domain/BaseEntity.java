@@ -1,11 +1,9 @@
 package com.owltex.shared.domain;
 
-import lombok.Data;
+import java.util.UUID;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-
-import java.util.UUID;
 
 @Getter
 @SuperBuilder
