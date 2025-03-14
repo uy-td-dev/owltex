@@ -10,8 +10,11 @@ vertx-core = {module = "io.vertx:vertx-core", version.ref ="vertx"}
 vertx-web = {module = "io.vertx:vertx-web", version.ref = "vertx"}
 vertx-health-check = {module = "io.vertx:vertx-health-check", version.ref = "vertx"}
 
+# database
 vertx-postgre = {module = "io.vertx:vertx-pg-client", version.ref = "vertx"}
 vertx-redis = {module = "io.vertx:vertx-redis-client", version.ref = "vertx"}
 vertx-mongo = {module = "io.vertx:vertx-mongo-client", version.ref = "vertx"}
 
+# tools
 lombok = {module = "org.projectlombok:lombok", version.ref = "lombok"}
+dagger = {module = "com.google.dagger:dagger", version = "2.55"}

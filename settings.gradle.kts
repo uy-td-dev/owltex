@@ -14,3 +14,7 @@ include("apps:order-service")
 findProject(":apps:order-service")?.name = "order-service"
 include("apps:product-service")
 findProject(":apps:product-service")?.name = "product-service"
+include("libs:event-bus")
+findProject(":libs:event-bus")?.name = "event-bus"
+include("libs:database-client")
+findProject(":libs:database-client")?.name = "database-client"

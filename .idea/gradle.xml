@@ -12,6 +12,8 @@
             <option value="$PROJECT_DIR$/apps/order-service" />
             <option value="$PROJECT_DIR$/apps/product-service" />
             <option value="$PROJECT_DIR$/libs" />
+            <option value="$PROJECT_DIR$/libs/database-client" />
+            <option value="$PROJECT_DIR$/libs/event-bus" />
             <option value="$PROJECT_DIR$/libs/share-kernel" />
             <option value="$PROJECT_DIR$/libs/untitled" />
           </set>
