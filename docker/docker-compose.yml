@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  # PostgreSQL Database
+  # PostgreSQL Database (used by Keycloak and other apps)
   postgres:
     image: postgres:latest
     container_name: postgres_db
@@ -9,6 +9,8 @@ services:
       POSTGRES_USER: myuser
       POSTGRES_PASSWORD: mypassword
       POSTGRES_DB: mydatabase
+      # Additional DB for Keycloak
+      POSTGRES_MULTIPLE_DATABASES: keycloak
     ports:
       - "5432:5432"
     volumes:
@@ -72,7 +74,7 @@ services:
 
   # RabbitMQ
   rabbitmq:
-    EXECUTIONSimage: rabbitmq:3-management
+    image: rabbitmq:3-management
     container_name: rabbitmq
     ports:
       - "5672:5672"  # AMQP protocol port
@@ -82,6 +84,28 @@ services:
       RABBITMQ_DEFAULT_PASS: guest
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - app-network
+
+  # Keycloak
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    container_name: keycloak
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: postgres
+      DB_DATABASE: keycloak
+      DB_USER: myuser
+      DB_PASSWORD: mypassword
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      # Start in dev mode for simplicity (remove for production)
+      KC_HEALTH_ENABLED: "true"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    command: start-dev
     networks:
       - app-network
 
